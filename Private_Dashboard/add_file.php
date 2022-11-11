@@ -277,7 +277,7 @@ input[type=file] {
         <form action="fileprocess.php" method="post" enctype="multipart/form-data" >
           <div class="col-md-11">
                 <label>Department Name: </label>
-                <select name="department" style="width:100%">
+                <select name="department[]" style="width:100%" multiple>
                    <option value="">--SELECT--</option>
 
                    <?php

@@ -17,6 +17,8 @@
           <i class="fas fa-user mr-3"></i>Add User</a>
            <a href="view_user.php" class="list-group-item list-group-item-action waves-effect">
           <i class="fas fa-users"></i>  View User</a>
+          <a href="user_uploaded_file.php" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-file-medical"></i>User Uploaded File</a>
         <a href="add_document.php" class="list-group-item list-group-item-action waves-effect">
           <i class="fas fa-file-medical"></i> Add Document</a>
         <a href="add_department.php" class="list-group-item list-group-item-action waves-effect">

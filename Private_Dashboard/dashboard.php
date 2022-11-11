@@ -281,8 +281,8 @@ position:absolute;
                              $chart_data="";
                              while ($row = mysqli_fetch_array($result)) { 
                               
-                                $name[]  = $row['EMAIL']  ;
-                                $counts[] = $row['count'];
+                                $name[]= $row['EMAIL']  ;
+                                $counts[]= $row['count'];
                             }
                      
                      

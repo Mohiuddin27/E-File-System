@@ -296,7 +296,7 @@ position:absolute;
          $name =  $file['NAME'];
          $size =  $file['SIZE'];
          $uploads =  $file['EMAIL'];
-         $department=$file['DEPARTMENT'];
+         $department=explode(',',$file['DEPARTMENT']);
           $status =  $file['ADMIN_STATUS'];
       
          $time =  $file['TIMERS'];
@@ -307,7 +307,14 @@ position:absolute;
       <td width="20%"><?php echo  $name; ?></td>
       <td><?php echo floor($size / 1000) . ' KB'; ?></td>
        <td><?php echo $uploads; ?></td>
-       <td style="text-transform:uppercase"><?php echo $department; ?></td>
+       <td style="text-transform:uppercase"><?php 
+       
+       for($i=0;$i<count($department);$i++){
+        echo $department[$i];
+        echo " ,";
+       }
+       
+       ?></td>
        <td><?php echo $status; ?></td>
        <td><?php echo $time; ?></td>
       <td><?php echo $download; ?></td>

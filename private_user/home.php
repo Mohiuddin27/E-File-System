@@ -143,6 +143,8 @@ if(!isset($_SESSION["email_address"])){
 <br><Br><br>
 <!-- Card -->
 <div class="container">
+  <a href="user_file_upload.php"><button class="btn btn-primary">File Uploade</button></a>
+  <a href="usersendmail.php"><button class="btn btn-success">Send Mail</button></a>
   <div class="row">
      <div class="col-md-9">
 
@@ -168,8 +170,37 @@ if(!isset($_SESSION["email_address"])){
    
         require_once("include/connection.php");
       $departmentt=$_SESSION['department'];
-      $query = mysqli_query($conn,"SELECT * FROM upload_files where department = '$departmentt' group by NAME DESC") or die (mysqli_error($conn));
+      $queryone = mysqli_query($conn,"SELECT * FROM upload_files ") or die (mysqli_error($conn));
+      $dep_array=array();
+      $result='';
+      while($file=mysqli_fetch_array($queryone)){
+        $id =  $file['ID'];
+        $name =  $file['NAME'];
+        $size =  $file['SIZE'];
+        $uploads =  $file['EMAIL'];
+        $department= ($file['DEPARTMENT']);
+         $status =  $file['ADMIN_STATUS'];
+        $time =  $file['TIMERS'];
+        $download =  $file['DOWNLOAD'];
+        // $result=concat(',',$department);
+       array_push($dep_array,$department);
+      
+      }
+     ?>
+    <?php
+      // echo $result=(implode(',',$dep_array));
+      // exit;
+       $departmentt=$_SESSION['department'];
+       $dep=array($department);
+       $depp=in_array($departmentt,$dep);
+      //  print_r($depp);
+      //  exit;
+       
+      $query = mysqli_query($conn,"SELECT * FROM upload_files where DEPARTMENT = '$departmentt' group by NAME DESC") or die (mysqli_error($conn));
+      print_r($query);
+      exit;
       while($file=mysqli_fetch_array($query)){
+        
          $id =  $file['ID'];
          $name =  $file['NAME'];
          $size =  $file['SIZE'];

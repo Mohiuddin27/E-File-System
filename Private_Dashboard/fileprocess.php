@@ -7,7 +7,7 @@ if (isset($_POST['save'])) { // if save button on the form is clicked
     // name of the uploaded file
 
   $user = $_POST['email'];
-  $department=$_POST['department'];
+  $department=implode(',',$_POST['department']);
 
     $filename = $_FILES['myfile']['name'];
 
@@ -29,7 +29,7 @@ if (isset($_POST['save'])) { // if save button on the form is clicked
                             window.location = "add_file.php";
                     </script>
                      ';
-    } elseif ($_FILES['myfile']['size'] > 2000000) { // file shouldn't be larger than 1Megabyte
+    } elseif ($_FILES['myfile']['size'] > 10000000) { // file shouldn't be larger than 1Megabyte
         echo "File too large!";
     } else{
 
